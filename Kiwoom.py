@@ -45,7 +45,7 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
         code_name = self.dynamicCall("GETMASTERCODENAME(QString",code)
 
     def get_connect_state(self):
-        ret =self.dynamicCall("GetMASTERcodeName(QString)", code)
+        ret =self.dynamicCall("GetConnectState()")
         return ret
     def set_input_value(self, id,value):
         self.dynamicCall("SetInputValue(QString,QString)", id,value)
@@ -57,4 +57,12 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
         self.tr_event_loop.exec_()
 
 
-    
+        #코드 타입 이름 인덱스 아이템 이름까지 모두 다이나믹콜 후 ret 반환
+    def comm_get_data(self,code,real_type,field_name,index,item_name):
+        ret =self.dynamicCall("CommGetData(QString, Qstring,QString,int QString)",
+                              code,real_type, field_name,item_name)
+        return ret.strip()
+
+    def _get_repat_cnt(self,trcode,rqname):
+        ret = self.dynamicCall("GetRepeatCnt(QString,Qstring)", trcode,rqname)
+        return ret
