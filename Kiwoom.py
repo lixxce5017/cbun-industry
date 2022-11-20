@@ -15,11 +15,15 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
     def __init__(self):
         super().__init__()
         self._create_kiwoom_instance()
-
+        self.set_signal_slots()
     def _create_kiwoom_instance(self):
         self.setControl("KHOPENAPI.KHOpenAPICtrl.1")
 
-    def comm_connet(self): #키움 객체가 생성이 되면 커넥트 메서드 호출 로그인 실행
+    def _set_signal_slots(self):
+        self.OnEventConnect.connect(self._event_connect)
+        self.OnReceiveTrData.connect(self._receive_tr_data)
+
+    def comm_connect(self): #키움 객체가 생성이 되면 커넥트 메서드 호출 로그인 실행
         self.dynamicCall("CommConnect()")
         self.login_event_loop =QEventLoop()
         self.login_event_loop.exec_()
@@ -37,11 +41,20 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
         code_list =code_list.split(';')
         return code_list[:-1]
 
+    def get_master_code_name(self, code):
+        code_name = self.dynamicCall("GETMASTERCODENAME(QString",code)
+
+    def get_connect_state(self):
+        ret =self.dynamicCall("GetMASTERcodeName(QString)", code)
+        return ret
+    def set_input_value(self, id,value):
+        self.dynamicCall("SetInputValue(QString,QString)", id,value)
+
+    def comm_rq_data(self,rqname,trcode,next,screen_no):
+        self.dynamicCall("COmmRqData(QString,QString,int,QString) ",rqname,trcode,next,
+                         screen_no)
+        self.tr_event_loop =QEventLoop()
+        self.tr_event_loop.exec_()
 
 
-if __name__=="__main__":
-    app = QApplication(sys.argv)
-    kiwoom = Kiwoom()
-    code_list = kiwoom.get_code_list_by_market('10')
-    for code in code_list: #리턴 받은 종목 코드 리스트 한 줄씩 출력
-        print(code, end=" ")
+    
