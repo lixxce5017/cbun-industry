@@ -1,7 +1,18 @@
 import sys
 from PyQt5.QtWidgets import *
+from PyQt5 import uic
 
-app = QApplication(sys.argv)
-label = QLabel("Hello PyQt")
-label.show()
-app.exec_()
+form_class = uic.loadUiType("main_window.ui")
+
+
+class MyWindow(QMainWindow, form_class):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    myWindow = MyWindow()
+    myWindow.show()
+    app.exec_()

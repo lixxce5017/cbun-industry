@@ -24,4 +24,4 @@ btn_ctrl =dlg.Button0
 btn_ctrl.Clck()
 
 time.sleep(50)
-os.system("taskkill/im nkmini.exe")
+os.system("taskkill /im nkmini.exe")
