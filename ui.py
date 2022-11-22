@@ -2,7 +2,7 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 
-form_class = uic.loadUiType("main_window.ui")
+form_class = uic.loadUiType("main_window.ui")[0]
 
 
 class MyWindow(QMainWindow, form_class):
