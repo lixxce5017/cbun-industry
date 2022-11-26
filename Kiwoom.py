@@ -102,6 +102,12 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
             self.ohlcv['volume'].append(int(volume))
 
 
+   #주문 보내기 다이나믹콜
+    def send_oder(self,rqname,screen_no, acc_no,order_type,code,quantity,
+                  price,hoga,order_no):
+        self.dynamicCall("SendOrder(Qstring,Qstirng,int,Qstring,int,int,Qstring,Qstring)",
+                         [rqname,screen_no,acc_no,order_type,code,quantity,price,hoga,order_no])
+
 
 
 
