@@ -110,4 +110,7 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
 
 
 
+    def get_hchejan_data(self,fid):# 체결잔고 데이터를 가져오는 메서드
+        ret = self.dynamicCall("GetChejanData(int)", fid)
+        return ret
 
