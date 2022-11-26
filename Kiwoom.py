@@ -123,3 +123,7 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
         print(self.get_chejan_data(302))
         print(self.get_chejan_data(900))
         print(self.get_chejan_data(901))
+
+    def get_login_info(self,tag):
+        ret = self.dynamicCall("GetLoginInfo(Qstring)", tag)
+        return ret
