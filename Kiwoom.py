@@ -24,6 +24,7 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
     def _set_signal_slots(self):
         self.OnEventConnect.connect(self._event_connect)
         self.OnReceiveTrData.connect(self._receive_tr_data)
+        self.OnReceiveChejanData.connect(self._recive_chejan_data)
 
     def comm_connect(self): #키움 객체가 생성이 되면 커넥트 메서드 호출 로그인 실행
         self.dynamicCall("CommConnect()")
@@ -114,3 +115,11 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
         ret = self.dynamicCall("GetChejanData(int)", fid)
         return ret
 
+        #서로다른 fid 값으로 서로 다른 데이터를 가져옴
+        #9023 주문번호 900 주문수량 901 주문가격
+    def _recive_chejan_data (self,gubun,item_cnt,fid_list):
+        print(gubun)
+        print(self.get_chejan_data(9203))
+        print(self.get_chejan_data(302))
+        print(self.get_chejan_data(900))
+        print(self.get_chejan_data(901))
