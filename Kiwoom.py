@@ -186,12 +186,12 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
         total_earning_rate = self.comm_get_data(trcode,"",rqname,0,"총수익률(%)")
         estimated_deposit = self.comm_get_data(trcode,"",rqname,0,"추정예탁자산 "
         )
-
-        print(Kiwoom.change_format(total_purchase_price))
-        print(Kiwoom.change_format(total_eval_price))
-        print(Kiwoom.change_format(total_profit_loss_price))
-        print(Kiwoom.change_format(total_earning_rate))
-        print(Kiwoom.change_format(estimated_deposit))
+        total_eval_profit_loss_price = self._comm_get_data(trcode,"",rqname,0,"총평가손익금액")
+        self.opw00018_output['single'].append(Kiwoom.change_format(total_purchase_price))
+        self.opw00018_output['single'].append(Kiwoom.change_format(total_eval_price))
+        self.opw00018_output['single'].append(Kiwoom.change_format(total_eval_profit_loss_price))
+        self.opw00018_output['single'].append(Kiwoom.change_format(total_earning_rate))
+        self.opw00018_output['single'].append(Kiwoom.change_format(estimated_deposit))
 
         rows = self._getrepeat_cnt(trcode,rqname)
         #reapt_cnt 메소드 호출하여 보유종 목을 받아옴
@@ -209,9 +209,8 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
             purchase_price = Kiwoom.change_format(purchase_price)
             current_price = Kiwoom.change_format(eval_profit_loss_price)
             earning_rate = Kiwoom.change_format2(earning_rate)
-
-            print(name,quantity,purchase_price,current_price,eval_profit_loss_price,earning_rate)
-
+            self.opw00018_output['multi'].append([name, quantity, purchase_price, current_price, eval_profit_loss_price,
+                                                  earning_rate])
 
             #ㅂㄷ아온 데이터를 인서트변수에 리스트에 저장
     def reset_opw00018_output(self):
