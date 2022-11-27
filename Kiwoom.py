@@ -61,7 +61,7 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
 
 
         #코드 타입 이름 인덱스 아이템 이름까지 모두 다이나믹콜 후 ret 반환
-    def comm_get_data(self,code,real_type,field_name,index,item_name):
+    def _comm_get_data(self,code,real_type,field_name,index,item_name):
         ret =self.dynamicCall("CommGetData(QString, Qstring,QString,int QString)",
                               code,real_type, field_name,item_name)
         return ret.strip()
@@ -78,7 +78,7 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
 
         else:
             self.remained_data= False
-            
+
         if rqname == "opt10081_req":
             self._opt10081(rqname, trcode)
         elif rqname == "opw00001_req":
@@ -161,6 +161,9 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
 
 
     #tr코드 추가 싱글 데이터로 잔고 데이터
+    #reapt_cnt 메소드 호출하여 보유종 목을 받아옴
+    # 그 후 해당 개수만큼 반복하여 종목 상세 데이터를
+    #get data로 받아옴
     def _opw00018(self, rqname, trcode):
         total_purchase_price = self.comm_get_data(trcode,"",rqname
                                                   ,0,"총매입금액")
@@ -176,3 +179,21 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
         print(Kiwoom.change_format(total_earning_rate))
         print(Kiwoom.change_format(estimated_deposit))
 
+        rows = self._getrepeat_cnt(trcode,rqname)
+        #reapt_cnt 메소드 호출하여 보유종 목을 받아옴
+    # 그 후 해당 개수만큼 반복하여 종목 상세 데이터를
+    #get data로 받아옴
+        for i in range(rows):
+            name =self._comm_get_data(trcode,"",rqname,i,"종목명")
+            quantity = self._comm_get_data(trcode,"",rqname,i,"보유수량")
+            purchase_price =self._comm_get_data(trcode,"",rqname,i,"매입가")
+            current_price = self._comm_get_data(trcode,"",rqname,i,"평가손익")
+            eval_profit_loss_price = self._comm_get_data(trcode,"",rqname,i,"평가손익")
+            earning_rate = self._comm_get_data(trcode,"", rqname,i,"수익률(%)")
+
+            quantity = Kiwoom.change_format(quantity)
+            purchase_price = Kiwoom.change_format(purchase_price)
+            current_price = Kiwoom.change_format(eval_profit_loss_price)
+            earning_rate = Kiwoom.change_format2(earning_rate)
+
+            print(name,quantity,purchase_price,current_price,eval_profit_loss_price,earning_rate)
