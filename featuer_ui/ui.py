@@ -15,6 +15,10 @@ class MyWindow(QMainWindow, form_class):
         self.Kiwoom = Kiwoom()
         self.Kiwoom.comm_connect()
 
+        self.timer = QTimer(self)
+        self.timer.start(1000)
+        self.timer.timeout.connect(self.timeout)
+
     def timeout(self):
         current_time =QTime.currentTime()
         text_time = current_time("hh:mm:ss")
