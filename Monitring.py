@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import *
 import Kiwoom
 import time
 from pandas import DataFrame
+import datetime
 
 MARKET_KOSPI =0
 MARKET_KISDAQ=0
@@ -36,6 +37,17 @@ class PyMon:
                        index=self.kiwoom.ohlcv['date'])
         return df
 
+    #되는지 본느거
+    def run(self):
+        df = self.get_ohlcv(sys.argv)
+        pymon =PyMon()
+        pymon.run()
+
+    #급등주 포착
+    def chek_seepdy_rising_volume(self, code):
+        today =datetime.datetime.today().strftime("%y%m%d") #오늘 날짜부터 가져옴
+        df = self.get_ohlcv(code,today) #get ohlcv 메서드를 호출해서 해당 종목 정보를 datframe 객체로 얻어오고 바인딩
+        volumes = df['volume']
 
 
 if __name__ == "__main__":
