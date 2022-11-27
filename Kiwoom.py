@@ -130,7 +130,9 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
 
     #TR을 사용하기 위한 메소드
     def _opw00001(self,rqname,trcode):
-        self.d2_deposit = self._comm_get_data(trcode,"",rqname,0,"d+추정 예수금")
+
+        d2_deposit = self._comm_get_data(trcode,"",rqname,0,"d+추정 예수금")
+        self.deposit =Kiwoom.change_format(d2_deposit)
         if rqname =="opt10081_req":
             self.opt10081(rqname,trcode)
 
@@ -142,9 +144,20 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
         strip_data = data.lstrip('-0')
         if strip_data =='' or strip_data =='.00':
             strip_data ='0'
-            
+
         format_data =format(int(strip_data),',d')
         if data.startswith('-'):
             format_data = '-' + format_data
 
         return format_data
+
+
+    #tr코드 추가 싱글 데이터로 잔고 데이터 
+    def _opw00018(self, rqname, trcode):
+        total_purchase_price = self.comm_get_data(trcode,"",rqname
+                                                  ,0,"총매입금액")
+        total_eval_price =self.comm_get_data(trcode,"",rqname,"총평가금액")
+        total_profit_loss_price = self.comm_get_data(trcode,"",rqname,0,"총평가손익")
+        total_earning_rate = self.comm_get_data(trcode,"",rqname,0,"총수익률(%)")
+        estimated_deposit = self.comm_get_data(trcode,"",rqname,0,"추정예탁자산 "
+        )
