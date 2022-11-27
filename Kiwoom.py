@@ -72,11 +72,19 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
     #데이터 받기 이벤트 부분
     def _receive_tr_data(self, screen_no, rqname, trcode, recode_name,next,unused1, unused2
                          ,unused3,unused4):
+
         if next =='2':
             self.remained_data = True
 
         else:
             self.remained_data= False
+            
+        if rqname == "opt10081_req":
+            self._opt10081(rqname, trcode)
+        elif rqname == "opw00001_req":
+            self._opw00001(rqname, trcode)
+        elif rqname == "opw00018_req":
+            self._opw00018(rqname, trcode)
 
         try:
             self.tr_event_loop.exit()
