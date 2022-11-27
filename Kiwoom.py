@@ -159,6 +159,19 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
 
         return format_data
 
+    def change_format2(data):
+        strip_data = data.lstrip('-0')
+
+        if strip_data == '':
+            strip_data = '0'
+
+        if strip_data.startswith('.'):
+            strip_data = '0' + strip_data
+
+        if data.startswith('-'):
+            strip_data = '-' + strip_data
+
+        return strip_data
 
     #tr코드 추가 싱글 데이터로 잔고 데이터
     #reapt_cnt 메소드 호출하여 보유종 목을 받아옴
