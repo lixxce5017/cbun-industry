@@ -159,6 +159,7 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
 
         return format_data
 
+    #수익률에 대한 포맷 변경
     def change_format2(data):
         strip_data = data.lstrip('-0')
 
@@ -210,3 +211,13 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
             earning_rate = Kiwoom.change_format2(earning_rate)
 
             print(name,quantity,purchase_price,current_price,eval_profit_loss_price,earning_rate)
+
+
+            #ㅂㄷ아온 데이터를 인서트변수에 리스트에 저장
+    def reset_opw00018_output(self):
+                self._opw00018_output = {'single': [], 'multi': []}
+
+    #서버 접속을 구분해서 데이터 다르게 처리
+    def get_server_gubun(self):
+        ret = self.dynamicCall("KOA_Funtions(QString, QString)","GetServerGunbun","")
+        return ret
