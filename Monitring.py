@@ -49,6 +49,24 @@ class PyMon:
         df = self.get_ohlcv(code,today) #get ohlcv 메서드를 호출해서 해당 종목 정보를 datframe 객체로 얻어오고 바인딩
         volumes = df['volume']
 
+        if(len(volumes))< 21: #20일치의 데이터만 쓰니 21이면 ㄴㄴ
+            return False
+        sum_vol20 = 0 # 일 별거래량 누적
+        today_vol = 0
+
+        for i, vol in enumerate(volumes):
+            if i==0:
+                today_vol =vol
+            elif 1<=i <=20:
+                sum_vol20 += vol
+            else:   # 여기도 쓸데 없이 더 안돌리고 20일 필요하니 브레이크 탈출
+                break
+        avg_vol20 = sum_vol20/20    # 평균 20일의 거래량 계산 후 시작 거래일의 거래량과 비교
+                                    # 거래량이 평균 거래량 1,000% 초과시 true 리턴
+        if today_vol > avg_vol20 * 10:
+            return True
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
