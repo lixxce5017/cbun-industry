@@ -37,11 +37,8 @@ class PyMon:
                        index=self.kiwoom.ohlcv['date'])
         return df
 
-    #되는지 본느거
-    def run(self):
-        df = self.get_ohlcv(sys.argv)
-        pymon =PyMon()
-        pymon.run()
+
+
 
     #급등주 포착
     def chek_seepdy_rising_volume(self, code):
@@ -72,6 +69,17 @@ class PyMon:
             f.writelines("매수;%s; 시장가;10;0;매수전\n" %(code))
         f.close()
 
+    # 스피디 라이징 반환값 트루인 종목의 종목코드를 리스트에 추가
+    # 거래량 급증 확인후 업데이트 바이 리스트 메서드로 급등종목 파일출력
+    def run(self):
+        buy_list = []
+        num = len(self.kosdaq_codes)
+
+        for i, code in enumerate(self.kosdaq_codes):
+            print(i, '/', num)
+            if self.chek_seepdy_rising_volume(code):
+                buy_list.append(code)
+        self.update_buy_list(buy_list)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
