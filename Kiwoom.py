@@ -136,3 +136,15 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
 
         elif rqname =="opw00001_req":
             self._opw00001(rqname,trcode)
+
+
+    def change_format(data):
+        strip_data = data.lstrip('-0')
+        if strip_data =='' or strip_data =='.00':
+            strip_data ='0'
+            
+        format_data =format(int(strip_data),',d')
+        if data.startswith('-'):
+            format_data = '-' + format_data
+
+        return format_data
