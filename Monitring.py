@@ -65,7 +65,12 @@ class PyMon:
                                     # 거래량이 평균 거래량 1,000% 초과시 true 리턴
         if today_vol > avg_vol20 * 10:
             return True
-
+    # 선정된 종목 정보파일로 쓰기
+    def update_buy_list(self, buy_list):
+        f= open("buy_list.txt", "wt")
+        for code in buy_list:
+            f.writelines("매수;%s; 시장가;10;0;매수전\n" %(code))
+        f.close()
 
 
 if __name__ == "__main__":
