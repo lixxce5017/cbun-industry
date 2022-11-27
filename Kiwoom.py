@@ -179,19 +179,28 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
     # 그 후 해당 개수만큼 반복하여 종목 상세 데이터를
     #get data로 받아옴
     def _opw00018(self, rqname, trcode):
-        total_purchase_price = self.comm_get_data(trcode,"",rqname
-                                                  ,0,"총매입금액")
+        total_purchase_price = self.comm_get_data(trcode,"",rqname ,0,"총매입금액")
         total_eval_price =self.comm_get_data(trcode,"",rqname,"총평가금액")
-        total_profit_loss_price = self.comm_get_data(trcode,"",rqname,0,"총평가손익")
         total_earning_rate = self.comm_get_data(trcode,"",rqname,0,"총수익률(%)")
-        estimated_deposit = self.comm_get_data(trcode,"",rqname,0,"추정예탁자산 "
-        )
+        estimated_deposit = self.comm_get_data(trcode,"",rqname,0,"추정예탁자산 ")
         total_eval_profit_loss_price = self._comm_get_data(trcode,"",rqname,0,"총평가손익금액")
+
+        #세부 ㅇㅇ데이터 변환
         self.opw00018_output['single'].append(Kiwoom.change_format(total_purchase_price))
         self.opw00018_output['single'].append(Kiwoom.change_format(total_eval_price))
         self.opw00018_output['single'].append(Kiwoom.change_format(total_eval_profit_loss_price))
-        self.opw00018_output['single'].append(Kiwoom.change_format(total_earning_rate))
+
+        total_earning_rate = Kiwoom.change_format(total_earning_rate)
+
+        if self.get_server_gubun():
+            total_earning_rate = float(total_earning_rate) / 100
+            total_earning_rate = str(total_earning_rate)
+
+
+        self.opw00018_output['single'].append(Kiwoom(total_earning_rate))
         self.opw00018_output['single'].append(Kiwoom.change_format(estimated_deposit))
+
+
 
         rows = self._getrepeat_cnt(trcode,rqname)
         #reapt_cnt 메소드 호출하여 보유종 목을 받아옴
