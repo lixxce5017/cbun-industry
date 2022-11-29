@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>2230</width>
+    <width>2169</width>
     <height>1314</height>
    </rect>
   </property>
@@ -20,25 +20,12 @@
       <x>40</x>
       <y>50</y>
       <width>351</width>
-      <height>531</height>
+      <height>421</height>
      </rect>
     </property>
     <property name="title">
      <string>거래내용</string>
     </property>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>50</y>
-       <width>120</width>
-       <height>27</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>계좌 : </string>
-     </property>
-    </widget>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
@@ -49,18 +36,71 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>100</y>
-       <width>120</width>
-       <height>27</height>
+       <y>50</y>
+       <width>83</width>
+       <height>109</height>
       </rect>
      </property>
-     <property name="text">
-      <string>주문 : </string>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>계좌 : </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>주문 : </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>종목 :</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>220</y>
+       <width>83</width>
+       <height>109</height>
+      </rect>
      </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>종류 : </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>수량 : </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>가격 : </string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>
@@ -69,7 +109,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>2230</width>
+     <width>2169</width>
      <height>43</height>
     </rect>
    </property>
