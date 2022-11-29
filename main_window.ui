@@ -6,39 +6,62 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>774</width>
-    <height>560</height>
+    <width>2230</width>
+    <height>1314</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>160</y>
-      <width>168</width>
-      <height>51</height>
+      <x>40</x>
+      <y>50</y>
+      <width>351</width>
+      <height>531</height>
      </rect>
     </property>
-    <property name="text">
-     <string>PushButton</string>
+    <property name="title">
+     <string>거래내용</string>
     </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>180</y>
-      <width>120</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>test label</string>
-    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>120</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>계좌 : </string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>50</y>
+       <width>221</width>
+       <height>33</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>120</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>주문 : </string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -46,7 +69,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>774</width>
+     <width>2230</width>
      <height>43</height>
     </rect>
    </property>
