@@ -53,6 +53,13 @@ class MyWindow(QMainWindow, form_class):
         hoga_lookup = {'지정가': "00", '시장가': "03"}
 
         account = self.comboBox.currentText()
+        order_type = self.comboBox_2.currentText()
+        code = self.lineEdit.text()
+        hoga = self.comboBox_3.currentText()
+        num = self.spinBox.value()
+        price = self.spinBox_2.value()
+
+        self.kiwoom.send_order("send_order_req", "0101", account, order_type_lookup[order_type], code, num, price, hoga_lookup[hoga], "")
 
 
 if __name__ == "__main__":
