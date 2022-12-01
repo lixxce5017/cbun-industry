@@ -30,3 +30,9 @@ class MyWindow(QMainWindow, form_class):
             state_msg = "서버 미 접속 중..."
 
         self.statusbar.showMessage(state_msg + " | " + time_msg)
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    myWindow = MyWindow()
+    myWindow.show()
+    app.exec_()
