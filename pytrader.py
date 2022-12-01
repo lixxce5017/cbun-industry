@@ -20,3 +20,7 @@ class MyWindow(QMainWindow, form_class):
 
     def timeout(self):
         current_time = QTime.currentTime()
+        text_time = current_time.toString("hh:mm:ss")
+        time_msg = "현재시간 : " + text_time
+
+        state = self.kiwoom.get_connect_state()
