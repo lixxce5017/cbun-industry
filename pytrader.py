@@ -6,6 +6,7 @@ from kiwoom import *
 
 form_class = uic.loadUiType("main_window.ui")
 
+
 class MyWindow(QMainWindow, form_class):
     def __init__(self):
         super().__init__()
@@ -19,6 +20,9 @@ class MyWindow(QMainWindow, form_class):
         self.timer.timeout.connect(self.timeout)
 
         self.lineEdit.textChanged.connect(self.code_changed)
+
+        accouns_num = int(self.kiwoom.get_login_info(("ACCOUNT_CNT")))
+        accounts = self.kiwoom.get_login_info("ACCNO")
 
     def timeout(self):
         current_time = QTime.currentTime()
@@ -37,6 +41,7 @@ class MyWindow(QMainWindow, form_class):
         code = self.lineEdit.text()
         name = self.kiwoom.get_master_code_name(code)
         self.lineEdit_2.setText(name)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
