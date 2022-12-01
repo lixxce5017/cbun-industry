@@ -18,6 +18,8 @@ class MyWindow(QMainWindow, form_class):
         self.timer.start(1000)
         self.timer.timeout.connect(self.timeout)
 
+        self.lineEdit.textChanged.connect(self.code_changed)
+
     def timeout(self):
         current_time = QTime.currentTime()
         text_time = current_time.toString("hh:mm:ss")
@@ -31,8 +33,14 @@ class MyWindow(QMainWindow, form_class):
 
         self.statusbar.showMessage(state_msg + " | " + time_msg)
 
+    def code_changed(self):
+        code = self.lineEdit.text()
+        name = self.kiwoom.get_master_code_name(code)
+        self.lineEdit_2.setText(name)
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myWindow = MyWindow()
     myWindow.show()
     app.exec_()
+
