@@ -271,6 +271,10 @@
        <height>561</height>
       </rect>
      </property>
+     <property name="rowCount">
+      <number>1</number>
+     </property>
+     <row/>
      <column>
       <property name="text">
        <string>종목명</string>
@@ -334,7 +338,7 @@
      <rect>
       <x>420</x>
       <y>890</y>
-      <width>1381</width>
+      <width>1411</width>
       <height>501</height>
      </rect>
     </property>
@@ -346,10 +350,44 @@
       <rect>
        <x>10</x>
        <y>40</y>
-       <width>256</width>
-       <height>192</height>
+       <width>1381</width>
+       <height>441</height>
       </rect>
      </property>
+     <property name="rowCount">
+      <number>1</number>
+     </property>
+     <row/>
+     <column>
+      <property name="text">
+       <string>주문유형</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>종목명</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>호가구분</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>수량</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>가격</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>상태</string>
+      </property>
+     </column>
     </widget>
    </widget>
   </widget>
