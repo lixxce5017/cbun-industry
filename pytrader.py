@@ -136,6 +136,19 @@ class MyWindow(QMainWindow, form_class):
                                            "")
 
 
+            #셀리스트 부분 위와 동일
+            # sell list
+            for row_data in sell_list:
+                split_row_data = row_data.split(';')
+                hoga = split_row_data[2]
+                code = split_row_data[1]
+                num = split_row_data[3]
+                price = split_row_data[4]
+
+                if split_row_data[-1].rstrip() == '매도전':
+                    self.kiwoom.send_order("send_order_req", "0101", account, 2, code, num, price, hoga_lookup[hoga],
+                                           "")
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
