@@ -28,6 +28,8 @@ class MyWindow(QMainWindow, form_class):
         accounts_list = accounts.split(';')[0:accouns_num]
         self.comboBox.addItems(accounts_list)
 
+        self.lineEdit.textChanged.connect(self.code_changed)
+
 
 
     def timeout(self):
@@ -48,6 +50,10 @@ class MyWindow(QMainWindow, form_class):
         name = self.kiwoom.get_master_code_name(code)
         self.lineEdit_2.setText(name)
 
+    def code_changed(self):
+        code = self.lineEdit.text()
+        name = self.kiwoom.get_master_code_name(code)
+        self.lineEdit_2.setText(name)
     def send_order(self):
         order_type_lookup = {'신규매수': 1, '신규매도': 2, '매수취소': 3, '매도취소': 4}
         hoga_lookup = {'지정가': "00", '시장가': "03"}
