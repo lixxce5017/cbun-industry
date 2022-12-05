@@ -83,6 +83,7 @@ class MyWindow(QMainWindow, form_class):
             row_count = len(buy_list) + len(sell_list)
             self.tableWidget_4.setRowCount(row_count)
             # 칼럼에 추가되는 데이터 중 종목명을 구함
+            #   바이 리스트
             for j in range(len(buy_list)):
                 row_data = buy_list[j]
                 split_row_data = row_data.split(';')
@@ -93,6 +94,18 @@ class MyWindow(QMainWindow, form_class):
                     item.setTextAlignment(Qt.AlignVCenter | Qt.AlignCenter)
                     self.tableWidget_4.setItem(j, i, item)
 
+            # 매도 종목우ㅏ 셀리스트의 종목명과종목 코드를 구함
+            for j in range(len(sell_list)):
+                row_data = sell_list[j]
+                split_row_data = row_data.split(';')
+                split_row_data[1] = self.kiwoom.get_master_code_name(split_row_data[1].rstrip())
+
+                for i in range(len(split_row_data)):
+                    item = QTableWidgetItem(split_row_data[i].rstrip())
+                    item.setTextAlignment(Qt.AlignVCenter | Qt.AlignCenter)
+                    self.tableWidget_4.setItem(len(buy_list) + j, i, item)
+
+            self.tableWidget_4.resizeRowsToContents()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
