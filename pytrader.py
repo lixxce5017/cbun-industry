@@ -30,6 +30,8 @@ class MyWindow(QMainWindow, form_class):
 
         self.lineEdit.textChanged.connect(self.code_changed)
 
+        self.load_buy_sell_list()
+
 
 
     def timeout(self):
@@ -66,6 +68,17 @@ class MyWindow(QMainWindow, form_class):
         price = self.spinBox_2.value()
 
         self.kiwoom.send_order("send_order_req", "0101", account, order_type_lookup[order_type], code, num, price, hoga_lookup[hoga], "")
+
+        def load_buy_sell_list(self):
+            f = open("buy_list.txt", 'rt')
+            buy_list = f.readlines()
+            f.close()
+
+            f = open("sell_list.txt", 'rt')
+            sell_list = f.readlines()
+            f.close()
+
+            #buy list와 셀리스트를 읽어오는 메소드
 
 
 if __name__ == "__main__":
