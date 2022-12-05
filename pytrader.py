@@ -119,6 +119,24 @@ class MyWindow(QMainWindow, form_class):
             sell_list = f.readlines()
             f.close()
 
+            # 계정
+            account = self.comboBox.currentText()
+
+            #BUY 리스트의 데이터를 문자열을 분리하여 필요한 정보를 준비
+            for row_data in buy_list:
+                split_row_data = row_data.split(';')
+                hoga = split_row_data[2]
+                code = split_row_data[1]
+                num = split_row_data[3]
+                price = split_row_data[4]
+
+                #준비된 데이터로 샌드오더
+                if split_row_data[-1].rstrip() == '매수전':
+                    self.kiwoom.send_order("send_order_req", "0101", account, 1, code, num, price, hoga_lookup[hoga],
+                                           "")
+
+
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myWindow = MyWindow()
