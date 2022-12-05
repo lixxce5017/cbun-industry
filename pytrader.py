@@ -107,6 +107,18 @@ class MyWindow(QMainWindow, form_class):
 
             self.tableWidget_4.resizeRowsToContents()
 
+            #생선된 파일의 매도 매수 정보를 읽어오는 메소드
+        def trade_stocks(self):
+            hoga_lookup = {'지정가': "00", '시장가': "03"}
+
+            f = open("buy_list.txt", 'rt')
+            buy_list = f.readlines()
+            f.close()
+
+            f = open("sell_list.txt", 'rt')
+            sell_list = f.readlines()
+            f.close()
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myWindow = MyWindow()
