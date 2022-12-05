@@ -41,6 +41,10 @@ class MyWindow(QMainWindow, form_class):
         market_star_time =QTime(9,0,0)
 
         current_time = QTime.currentTime()
+        # 개장 시간 현재 시간 검사
+        if current_time > market_star_time and self.trade_Stock_done is False:
+            self.trade_Stocks()
+            self.trade_Stock_done =True
         text_time = current_time.toString("hh:mm:ss")
         time_msg = "현재시간 : " + text_time
 
