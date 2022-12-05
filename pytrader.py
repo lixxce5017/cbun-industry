@@ -148,7 +148,14 @@ class MyWindow(QMainWindow, form_class):
                 if split_row_data[-1].rstrip() == '매도전':
                     self.kiwoom.send_order("send_order_req", "0101", account, 2, code, num, price, hoga_lookup[hoga],
                                            "")
+            for i, row_data in enumerate(buy_list):
+                buy_list[i] = buy_list[i].replace("매수전", "주문완료")
 
+                # file update
+            f = open("buy_list.txt", 'wt')
+            for row_data in buy_list:
+                f.write(row_data)
+            f.close()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
