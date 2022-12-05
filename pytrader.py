@@ -12,6 +12,8 @@ class MyWindow(QMainWindow, form_class):
         super().__init__()
         self.setupUi(self)
 
+        self.trade_Stock_done =False
+
         self.kiwoom = Kiwoom()
         self.kiwoom.comm_connect()
 
@@ -35,6 +37,9 @@ class MyWindow(QMainWindow, form_class):
 
 
     def timeout(self):
+        # 오픈시간 추가
+        market_star_time =QTime(9,0,0)
+
         current_time = QTime.currentTime()
         text_time = current_time.toString("hh:mm:ss")
         time_msg = "현재시간 : " + text_time
