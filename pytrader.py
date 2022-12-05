@@ -157,6 +157,16 @@ class MyWindow(QMainWindow, form_class):
                 f.write(row_data)
             f.close()
 
+            # sell list
+            for i, row_data in enumerate(sell_list):
+                sell_list[i] = sell_list[i].replace("매도전", "주문완료")
+
+            # file update
+            f = open("sell_list.txt", 'wt')
+            for row_data in sell_list:
+                f.write(row_data)
+            f.close()
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myWindow = MyWindow()
