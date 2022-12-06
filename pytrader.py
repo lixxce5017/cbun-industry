@@ -200,6 +200,12 @@ class MyWindow(QMainWindow, form_class):
         item = QTableWidgetItem(self.kiwoom.d2_deposit)
         item.setTextAlignment(Qt.AlignVCenter | Qt.AlignRight)
         self.tableWidget.setItem(0, 0, item)
+            #총매입 평가 손익 수익률 추정자산을
+            #Qtabekwidge의 칼럼에 추가 하는 반복문
+        for i in range(1, 6):
+            item = QTableWidgetItem(self.kiwoom.opw00018_output['single'][i - 1])
+            item.setTextAlignment(Qt.AlignVCenter | Qt.AlignRight)
+            self.tableWidget.setItem(0, i, item)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
