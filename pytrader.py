@@ -175,6 +175,14 @@ class MyWindow(QMainWindow, form_class):
             for row_data in sell_list:
                 f.write(row_data)
             f.close()
+        # 잔고 체크 메소드
+    def check_balance(self):
+        self.kiwoom.reset_opw00018_output()
+        account_number = self.kiwoom.get_login_info("ACCNO")
+        account_number = account_number.split(';')[0]
+
+        self.kiwoom.set_input_value("계좌번호", account_number)
+        self.kiwoom.comm_rq_data("opw00018_req", "opw00018", 0, "2000")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
