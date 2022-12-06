@@ -229,3 +229,4 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
     def get_server_gubun(self):
         ret = self.dynamicCall("KOA_Funtions(QString, QString)","GetServerGunbun","")
         return ret
+## 병합 위한 추가 주석 체인지
