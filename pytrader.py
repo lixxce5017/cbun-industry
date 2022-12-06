@@ -190,6 +190,16 @@ class MyWindow(QMainWindow, form_class):
             time.sleep(0.2)
             self.kiwoom.set_input_value("계좌번호", account_number)
             self.kiwoom.comm_rq_data("opw00018_req", "opw00018", 2, "2000")
+        #예수금 데이터를 얻기 위한 opw tr 요청 코드
+
+         # opw00001
+        self.kiwoom.set_input_value("계좌번호", account_number)
+        self.kiwoom.comm_rq_data("opw00001_req", "opw00001", 0, "2000")
+
+        # balance
+        item = QTableWidgetItem(self.kiwoom.d2_deposit)
+        item.setTextAlignment(Qt.AlignVCenter | Qt.AlignRight)
+        self.tableWidget.setItem(0, 0, item)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
