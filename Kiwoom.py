@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QAxContainer import *
 import sys
-
+# 집 컴으로 올라가나 확인
 
 TR_REQ_TIME_INTERVAL = 0.2
 
