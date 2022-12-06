@@ -211,8 +211,15 @@ class MyWindow(QMainWindow, form_class):
         #아이템 리스트행과 열 정하기
         item_count = len(self.kiwoom.opw00018_output['multi'])
         self.tableWidget_2.setRowCount(item_count)
-
-
+        #정한 행과 열의 개수로 아이템 추가 한 종목에 대한 평가손익 수익률 종목명 보유량은 한 행에
+        for j in range(item_count):
+            row = self.kiwoom.opw00018_output['multi'][j]
+            for i in range(len(row)):
+                item = QTableWidgetItem(row[i])
+                item.setTextAlignment(Qt.AlignVCenter | Qt.AlignRight)
+                self.tableWidget_2.setItem(j, i, item)
+        #행의 크기를 조절
+        self.tableWidget_2.resizeRowsToContents()
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myWindow = MyWindow()
