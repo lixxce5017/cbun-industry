@@ -235,3 +235,8 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     kiwoom = Kiwoom()
     kiwoom.comm_connect()
+
+    kiwoom.reset_opw00018_output()
+    account_number = kiwoom.get_login_info("ACCNO")
+    account_number = account_number.split(';')[0]
+
