@@ -229,3 +229,9 @@ class Kiwoom(QAxWidget): # 키움 오픈 API를 이용하려면 QaXWidget 가 �
     def get_server_gubun(self):
         ret = self.dynamicCall("KOA_Funtions(QString, QString)","GetServerGunbun","")
         return
+
+#메인 켜는 부분
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    kiwoom = Kiwoom()
+    kiwoom.comm_connect()
