@@ -1,4 +1,6 @@
 import sys
+from datetime import time
+
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5 import uic
@@ -183,6 +185,11 @@ class MyWindow(QMainWindow, form_class):
 
         self.kiwoom.set_input_value("계좌번호", account_number)
         self.kiwoom.comm_rq_data("opw00018_req", "opw00018", 0, "2000")
+        # 보유 종목 데이터 연속 요청
+        while self.kiwoom.remained_data:
+            time.sleep(0.2)
+            self.kiwoom.set_input_value("계좌번호", account_number)
+            self.kiwoom.comm_rq_data("opw00018_req", "opw00018", 2, "2000")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
