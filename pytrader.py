@@ -206,6 +206,12 @@ class MyWindow(QMainWindow, form_class):
             item = QTableWidgetItem(self.kiwoom.opw00018_output['single'][i - 1])
             item.setTextAlignment(Qt.AlignVCenter | Qt.AlignRight)
             self.tableWidget.setItem(0, i, item)
+        #사이즈 재 조절
+        self.tableWidget.resizeRowsToContents()
+        #아이템 리스트행과 열 정하기
+        item_count = len(self.kiwoom.opw00018_output['multi'])
+        self.tableWidget_2.setRowCount(item_count)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
