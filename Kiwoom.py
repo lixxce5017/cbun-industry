@@ -42,3 +42,8 @@ class Kiwoom(QAxWidget):
         code_list = self.dynamicCall("GetCodeListByMarket(QString)", market)
         code_list = code_list.split(';')
         return code_list[:-1]
+
+
+    def get_master_code_name(self, code):
+        code_name = self.dynamicCall("GetMasterCodeName(QString)", code)
+        return code_name
