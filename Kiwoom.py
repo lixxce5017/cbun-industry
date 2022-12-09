@@ -28,3 +28,12 @@ class Kiwoom(QAxWidget):
         self.dynamicCall("CommConnect()")
         self.login_event_loop = QEventLoop()
         self.login_event_loop.exec_()
+
+    #연결확인해주는메소드
+    def _event_connect(self, err_code):
+        if err_code == 0:
+            print("connected")
+        else:
+            print("disconnected")
+
+        self.login_event_loop.exit()
