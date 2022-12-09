@@ -145,3 +145,11 @@ class Kiwoom(QAxWidget):
 
         if strip_data == '':
             strip_data = '0'
+
+        if strip_data.startswith('.'):
+            strip_data = '0' + strip_data
+
+        if data.startswith('-'):
+            strip_data = '-' + strip_data
+
+        return strip_data
