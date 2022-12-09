@@ -106,3 +106,11 @@ class Kiwoom(QAxWidget):
             self.remained_data = True
         else:
             self.remained_data = False
+
+
+        if rqname == "opt10081_req":
+            self._opt10081(rqname, trcode)
+        elif rqname == "opw00001_req":
+            self._opw00001(rqname, trcode)
+        elif rqname == "opw00018_req":
+            self._opw00018(rqname, trcode)
