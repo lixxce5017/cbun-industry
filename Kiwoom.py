@@ -120,6 +120,8 @@ class Kiwoom(QAxWidget):
         except AttributeError:
             pass
 
+
+    @staticmethod
     def change_format(data):
         strip_data = data.lstrip('-0')
         if strip_data == '' or strip_data == '.00':
@@ -135,3 +137,11 @@ class Kiwoom(QAxWidget):
         #반환
         return format_data
 
+
+    @staticmethod
+    # 수익률에 대한 포맷 변경
+    def change_format2(data):
+        strip_data = data.lstrip('-0')
+
+        if strip_data == '':
+            strip_data = '0'
