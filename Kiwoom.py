@@ -97,3 +97,12 @@ class Kiwoom(QAxWidget):
         print(self.get_chejan_data(302))
         print(self.get_chejan_data(900))
         print(self.get_chejan_data(901))
+
+# 서로다른 fid 값으로 서로 다른 데이터를 가져옴
+    # 9023 주문번호 900 주문수량 901 주문가격
+    # 데이터 받기
+    def _receive_tr_data(self, screen_no, rqname, trcode, record_name, next, unused1, unused2, unused3, unused4):
+        if next == '2':
+            self.remained_data = True
+        else:
+            self.remained_data = False
