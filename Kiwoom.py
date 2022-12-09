@@ -89,3 +89,11 @@ class Kiwoom(QAxWidget):
     def get_server_gubun(self):
         ret = self.dynamicCall("KOA_Functions(QString, QString)", "GetServerGubun", "")
         return ret
+
+    #체결잔고 명시
+    def _receive_chejan_data(self, gubun, item_cnt, fid_list):
+        print(gubun)
+        print(self.get_chejan_data(9203))
+        print(self.get_chejan_data(302))
+        print(self.get_chejan_data(900))
+        print(self.get_chejan_data(901))
