@@ -164,3 +164,9 @@ class Kiwoom(QAxWidget):
         data_cnt = self._get_repeat_cnt(trcode, rqname)
     #    tr코드 rqname 일자 모두 cnt 수만큼 데이터에 집어 넣어줌
         for i in range(data_cnt):
+            date = self._comm_get_data(trcode, "", rqname, i, "일자")
+            open = self._comm_get_data(trcode, "", rqname, i, "시가")
+            high = self._comm_get_data(trcode, "", rqname, i, "고가")
+            low = self._comm_get_data(trcode, "", rqname, i, "저가")
+            close = self._comm_get_data(trcode, "", rqname, i, "현재가")
+            volume = self._comm_get_data(trcode, "", rqname, i, "거래량")
