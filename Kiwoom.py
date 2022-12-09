@@ -179,8 +179,6 @@ class Kiwoom(QAxWidget):
             self.ohlcv['volume'].append(int(volume))
 
         # ㅂㄷ아온 데이터를 인서트변수에 리스트에 저장
-
-
     def reset_opw00018_output(self):
         self.opw00018_output = {'single': [], 'multi': []}
 
@@ -192,3 +190,6 @@ class Kiwoom(QAxWidget):
         # single data
         total_purchase_price = self._comm_get_data(trcode, "", rqname, 0, "총매입금액")
         total_eval_price = self._comm_get_data(trcode, "", rqname, 0, "총평가금액")
+        total_eval_profit_loss_price = self._comm_get_data(trcode, "", rqname, 0, "총평가손익금액")
+        total_earning_rate = self._comm_get_data(trcode, "", rqname, 0, "총수익률(%)")
+        estimated_deposit = self._comm_get_data(trcode, "", rqname, 0, "추정예탁자산")
