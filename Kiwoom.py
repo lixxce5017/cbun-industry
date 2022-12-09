@@ -52,3 +52,7 @@ class Kiwoom(QAxWidget):
     def get_connect_state(self):#연결상태
         ret = self.dynamicCall("GetConnectState()")
         return ret
+
+    def get_login_info(self, tag):#로그인 정보
+        ret = self.dynamicCall("GetLoginInfo(QString)", tag)
+        return ret
