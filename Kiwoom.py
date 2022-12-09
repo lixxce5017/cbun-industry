@@ -158,3 +158,9 @@ class Kiwoom(QAxWidget):
     def _opw00001(self, rqname, trcode):
         d2_deposit = self._comm_get_data(trcode, "", rqname, 0, "d+2추정예수금")
         self.d2_deposit = Kiwoom.change_format(d2_deposit)
+
+
+    def _opt10081(self, rqname, trcode):
+        data_cnt = self._get_repeat_cnt(trcode, rqname)
+    #    tr코드 rqname 일자 모두 cnt 수만큼 데이터에 집어 넣어줌
+        for i in range(data_cnt):
