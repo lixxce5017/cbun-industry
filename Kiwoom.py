@@ -18,6 +18,11 @@ class Kiwoom(QAxWidget):
     def _create_kiwoom_instance(self):
         self.setControl("KHOPENAPI.KHOpenAPICtrl.1")
 
-
+    #연결해서 tr 이랑 잔고 데이터 받아오기
     def _set_signal_slots(self):
         self.OnEventConnect.connect(self._event_connect)
+        self.OnReceiveTrData.connect(self._receive_tr_data)
+        self.OnReceiveChejanData.connect(self._receive_chejan_data)
+
+
+    def comm_connect(self):  # 키움 객체가 생성이 되면 커넥트 메서드 호출 로그인 실행
