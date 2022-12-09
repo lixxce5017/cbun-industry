@@ -129,3 +129,9 @@ class Kiwoom(QAxWidget):
             format_data = format(int(strip_data), ',d')
         except:
             format_data = format(float(strip_data))
+        #변환
+        if data.startswith('-'):
+            format_data = '-' + format_data
+        #반환
+        return format_data
+
