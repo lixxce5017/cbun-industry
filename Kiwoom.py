@@ -114,3 +114,8 @@ class Kiwoom(QAxWidget):
             self._opw00001(rqname, trcode)
         elif rqname == "opw00018_req":
             self._opw00018(rqname, trcode)
+
+        try:
+            self.tr_event_loop.exit()
+        except AttributeError:
+            pass
