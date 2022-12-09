@@ -223,3 +223,8 @@ class Kiwoom(QAxWidget):
             quantity = Kiwoom.change_format(quantity)
             purchase_price = Kiwoom.change_format(purchase_price)
             current_price = Kiwoom.change_format(current_price)
+            eval_profit_loss_price = Kiwoom.change_format(eval_profit_loss_price)
+            earning_rate = Kiwoom.change_format2(earning_rate)
+            #받아서 넣고 아웃풋
+            self.opw00018_output['multi'].append([name, quantity, purchase_price, current_price, eval_profit_loss_price,
+                                                  earning_rate])
