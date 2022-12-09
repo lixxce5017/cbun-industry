@@ -47,3 +47,8 @@ class Kiwoom(QAxWidget):
     def get_master_code_name(self, code):
         code_name = self.dynamicCall("GetMasterCodeName(QString)", code)
         return code_name
+
+
+    def get_connect_state(self):#연결상태
+        ret = self.dynamicCall("GetConnectState()")
+        return ret
