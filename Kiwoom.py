@@ -230,7 +230,7 @@ class Kiwoom(QAxWidget):
                                                   earning_rate])
 
 if __name__ == "__main__":
-    #키움 연결 및 앱켜기
+    #키움 연결 및 앱켜기 #
     app = QApplication(sys.argv)
     kiwoom = Kiwoom()
     kiwoom.comm_connect()
