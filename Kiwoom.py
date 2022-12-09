@@ -56,3 +56,7 @@ class Kiwoom(QAxWidget):
     def get_login_info(self, tag):#로그인 정보
         ret = self.dynamicCall("GetLoginInfo(QString)", tag)
         return ret
+    def set_input_value(self, id, value):
+        self.dynamicCall("SetInputValue(QString, QString)", id, value)
+
+    def comm_rq_data(self, rqname, trcode, next, screen_no):
