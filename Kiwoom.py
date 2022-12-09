@@ -193,3 +193,8 @@ class Kiwoom(QAxWidget):
         total_eval_profit_loss_price = self._comm_get_data(trcode, "", rqname, 0, "총평가손익금액")
         total_earning_rate = self._comm_get_data(trcode, "", rqname, 0, "총수익률(%)")
         estimated_deposit = self._comm_get_data(trcode, "", rqname, 0, "추정예탁자산")
+
+        # 세부 ㅇㅇ데이터 변환 CHAGNE FORATE 메소드 호출
+        self.opw00018_output['single'].append(Kiwoom.change_format(total_purchase_price))
+        self.opw00018_output['single'].append(Kiwoom.change_format(total_eval_price))
+        self.opw00018_output['single'].append(Kiwoom.change_format(total_eval_profit_loss_price))
