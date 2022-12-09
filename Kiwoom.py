@@ -79,3 +79,8 @@ class Kiwoom(QAxWidget):
     def send_order(self, rqname, screen_no, acc_no, order_type, code, quantity, price, hoga, order_no):
         self.dynamicCall("SendOrder(QString, QString, QString, int, QString, int, int, QString, QString)",
                      [rqname, screen_no, acc_no, order_type, code, quantity, price, hoga, order_no])
+
+
+    def get_chejan_data(self, fid):  # 체결잔고 데이터를 가져오는 메서드
+        ret = self.dynamicCall("GetChejanData(int)", fid)
+        return ret
