@@ -63,3 +63,9 @@ class Kiwoom(QAxWidget):
         self.dynamicCall("CommRqData(QString, QString, int, QString)", rqname, trcode, next, screen_no)
         self.tr_event_loop = QEventLoop()
         self.tr_event_loop.exec_()
+
+    # 코드 타입 이름 인덱스 아이템 이름까지 모두 다이나믹콜 후 ret 반환
+    def _comm_get_data(self, code, real_type, field_name, index, item_name):
+        ret = self.dynamicCall("CommGetData(QString, QString, QString, int, QString)", code,
+                               real_type, field_name, index, item_name)
+        return ret.strip()
