@@ -107,14 +107,14 @@ class Kiwoom(QAxWidget):
         else:
             self.remained_data = False
 
-
+        #분류
         if rqname == "opt10081_req":
             self._opt10081(rqname, trcode)
         elif rqname == "opw00001_req":
             self._opw00001(rqname, trcode)
         elif rqname == "opw00018_req":
             self._opw00018(rqname, trcode)
-
+        #예외처리
         try:
             self.tr_event_loop.exit()
         except AttributeError:
@@ -124,3 +124,8 @@ class Kiwoom(QAxWidget):
         strip_data = data.lstrip('-0')
         if strip_data == '' or strip_data == '.00':
             strip_data = '0'
+        #예외처리
+        try:
+            format_data = format(int(strip_data), ',d')
+        except:
+            format_data = format(float(strip_data))
