@@ -69,3 +69,8 @@ class Kiwoom(QAxWidget):
         ret = self.dynamicCall("CommGetData(QString, QString, QString, int, QString)", code,
                                real_type, field_name, index, item_name)
         return ret.strip()
+
+
+    def _get_repeat_cnt(self, trcode, rqname):#TR RQ만 다시
+        ret = self.dynamicCall("GetRepeatCnt(QString, QString)", trcode, rqname)
+        return ret
