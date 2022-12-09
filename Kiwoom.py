@@ -177,3 +177,18 @@ class Kiwoom(QAxWidget):
             self.ohlcv['low'].append(int(low))
             self.ohlcv['close'].append(int(close))
             self.ohlcv['volume'].append(int(volume))
+
+        # ㅂㄷ아온 데이터를 인서트변수에 리스트에 저장
+
+
+    def reset_opw00018_output(self):
+        self.opw00018_output = {'single': [], 'multi': []}
+
+    # tr코드 추가 싱글 데이터로 잔고 데이터
+    # reapt_cnt 메소드 호출하여 보유종 목을 받아옴
+     # 그 후 해당 개수만큼 반복하여 종목 상세 데이터를
+    # get data로 받아옴
+    def _opw00018(self, rqname, trcode):
+        # single data
+        total_purchase_price = self._comm_get_data(trcode, "", rqname, 0, "총매입금액")
+        total_eval_price = self._comm_get_data(trcode, "", rqname, 0, "총평가금액")
