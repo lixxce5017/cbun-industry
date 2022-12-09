@@ -37,3 +37,8 @@ class Kiwoom(QAxWidget):
             print("disconnected")
 
         self.login_event_loop.exit()
+
+    def get_code_list_by_market(self, market):#get code market 메소드를 동적호출
+        code_list = self.dynamicCall("GetCodeListByMarket(QString)", market)
+        code_list = code_list.split(';')
+        return code_list[:-1]
