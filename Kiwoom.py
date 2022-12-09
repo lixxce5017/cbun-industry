@@ -204,3 +204,11 @@ class Kiwoom(QAxWidget):
         if self.get_server_gubun():
             total_earning_rate = float(total_earning_rate) / 100
             total_earning_rate = str(total_earning_rate)
+        self.opw00018_output['single'].append(total_earning_rate)
+
+        self.opw00018_output['single'].append(Kiwoom.change_format(estimated_deposit))
+        # reapt_cnt 메소드 호출하여 보유종 목을 받아옴
+        # 그 후 해당 개수만큼 반복하여 종목 상세 데이터를
+        # get data로 받아옴
+        # multi
+        rows = self._get_repeat_cnt(trcode, rqname)
