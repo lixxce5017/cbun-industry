@@ -59,4 +59,7 @@ class Kiwoom(QAxWidget):
     def set_input_value(self, id, value):
         self.dynamicCall("SetInputValue(QString, QString)", id, value)
 
-    def comm_rq_data(self, rqname, trcode, next, screen_no):
+    def comm_rq_data(self, rqname, trcode, next, screen_no):#  RQ TR
+        self.dynamicCall("CommRqData(QString, QString, int, QString)", rqname, trcode, next, screen_no)
+        self.tr_event_loop = QEventLoop()
+        self.tr_event_loop.exec_()
