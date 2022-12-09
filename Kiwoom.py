@@ -153,3 +153,8 @@ class Kiwoom(QAxWidget):
             strip_data = '-' + strip_data
 
         return strip_data
+
+        # TR을 사용하기 위한 메소드
+    def _opw00001(self, rqname, trcode):
+        d2_deposit = self._comm_get_data(trcode, "", rqname, 0, "d+2추정예수금")
+        self.d2_deposit = Kiwoom.change_format(d2_deposit)
