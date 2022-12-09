@@ -228,3 +228,9 @@ class Kiwoom(QAxWidget):
             #받아서 넣고 아웃풋
             self.opw00018_output['multi'].append([name, quantity, purchase_price, current_price, eval_profit_loss_price,
                                                   earning_rate])
+
+if __name__ == "__main__":
+    #키움 연결 및 앱켜기
+    app = QApplication(sys.argv)
+    kiwoom = Kiwoom()
+    kiwoom.comm_connect()
