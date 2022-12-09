@@ -84,3 +84,8 @@ class Kiwoom(QAxWidget):
     def get_chejan_data(self, fid):  # 체결잔고 데이터를 가져오는 메서드
         ret = self.dynamicCall("GetChejanData(int)", fid)
         return ret
+
+# 서버 접속을 구분해서 데이터 다르게 처리
+    def get_server_gubun(self):
+        ret = self.dynamicCall("KOA_Functions(QString, QString)", "GetServerGubun", "")
+        return ret
