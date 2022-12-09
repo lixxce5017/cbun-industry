@@ -119,3 +119,8 @@ class Kiwoom(QAxWidget):
             self.tr_event_loop.exit()
         except AttributeError:
             pass
+
+    def change_format(data):
+        strip_data = data.lstrip('-0')
+        if strip_data == '' or strip_data == '.00':
+            strip_data = '0'
