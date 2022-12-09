@@ -219,3 +219,7 @@ class Kiwoom(QAxWidget):
             current_price = self._comm_get_data(trcode, "", rqname, i, "현재가")
             eval_profit_loss_price = self._comm_get_data(trcode, "", rqname, i, "평가손익")
             earning_rate = self._comm_get_data(trcode, "", rqname, i, "수익률(%)")
+
+            quantity = Kiwoom.change_format(quantity)
+            purchase_price = Kiwoom.change_format(purchase_price)
+            current_price = Kiwoom.change_format(current_price)
