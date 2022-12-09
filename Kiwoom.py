@@ -74,3 +74,8 @@ class Kiwoom(QAxWidget):
     def _get_repeat_cnt(self, trcode, rqname):#TR RQ만 다시
         ret = self.dynamicCall("GetRepeatCnt(QString, QString)", trcode, rqname)
         return ret
+
+   # 주문 보내기 다이나믹콜
+    def send_order(self, rqname, screen_no, acc_no, order_type, code, quantity, price, hoga, order_no):
+        self.dynamicCall("SendOrder(QString, QString, QString, int, QString, int, int, QString, QString)",
+                     [rqname, screen_no, acc_no, order_type, code, quantity, price, hoga, order_no])
