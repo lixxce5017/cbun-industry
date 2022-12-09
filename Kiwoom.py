@@ -24,5 +24,7 @@ class Kiwoom(QAxWidget):
         self.OnReceiveTrData.connect(self._receive_tr_data)
         self.OnReceiveChejanData.connect(self._receive_chejan_data)
 
-
     def comm_connect(self):  # 키움 객체가 생성이 되면 커넥트 메서드 호출 로그인 실행
+        self.dynamicCall("CommConnect()")
+        self.login_event_loop = QEventLoop()
+        self.login_event_loop.exec_()
