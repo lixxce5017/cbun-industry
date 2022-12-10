@@ -111,6 +111,26 @@
        <height>33</height>
       </rect>
      </property>
+     <item>
+      <property name="text">
+       <string>신규매수</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>신규매도</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>매수취소</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>매도취소</string>
+      </property>
+     </item>
     </widget>
     <widget class="QComboBox" name="comboBox_3">
      <property name="geometry">
