@@ -59,14 +59,14 @@ class MyWindow(QMainWindow, form_class):
         self.statusbar.showMessage(state_msg + " | " + time_msg)
 
     def code_changed(self):
-        code = self.lineEdit.text()
+        code = self.lineEdit_first.text()
         name = self.kiwoom.get_master_code_name(code)
-        self.lineEdit_2.setText(name)
+        self.lineEdit_second.setText(name)
 
     def code_changed(self):
-        code = self.lineEdit.text()
+        code = self.lineEdit_first.text()
         name = self.kiwoom.get_master_code_name(code)
-        self.lineEdit_2.setText(name)
+        self.lineEdit_second.setText(name)
     def send_order(self):
         order_type_lookup = {'신규매수': 1, '신규매도': 2, '매수취소': 3, '매도취소': 4}
         hoga_lookup = {'지정가': "00", '시장가': "03"}
