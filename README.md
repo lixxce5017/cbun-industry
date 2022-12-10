@@ -1,17 +1,17 @@
 ****주식 추천 프로그램****<br/>
 **산업스파이**<br/><br/><br/><br/>
 
-****서비스 소개****<br/><br/>
+# 서비스 소개<br/><br/>
   
-****사용 방법****<br/><br/>
+# 실행 방법<br/><br/>
 
 # 의존성<br/><br/>
-pyhon 3.x<br/>
+pyhon 3.10<br/>
 *키움증권 번개 api*<br/>
 [키움증권사이트](https://www.kiwoom.com/h/common/event/VEventMainView?eventCode=20220074&from=138<br/>) *계좌개설 필요 *<br/>
 키움증권 오픈 api 모듈api*<br/>
 Open API OCX 탑재 프로그램 제작 및 KOA Studioapi*<br/>
-아나콘다 32bit api*<br/>
+아나콘다 32bit *<br/>
 Open API for Windows COM <br/>
 
 
@@ -58,4 +58,7 @@ class Kiwoom(QAxWidget):
 모두 설치
 
 
-****Contributer****
+# Contributer
+kim seung whan, lixxce5017@gmail.com,ChungBuk National Univ <br/>
+jun inwoo, wjsdlsdn1158@naver.com,ChungBuk National Univ<br/>
+lee seng min, ChungBuk National Univ<br/>
