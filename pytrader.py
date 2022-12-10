@@ -30,7 +30,7 @@ class MyWindow(QMainWindow, form_class):
         accounts = self.kiwoom.get_login_info("ACCNO")
 
         accounts_list = accounts.split(';')[0:accouns_num]
-        self.comboBox.addItems(accounts_list)
+        self.comboBox_account.addItems(accounts_list)
 
         self.lineEdit_first.textChanged.connect(self.code_changed)
 
@@ -71,7 +71,7 @@ class MyWindow(QMainWindow, form_class):
         order_type_lookup = {'신규매수': 1, '신규매도': 2, '매수취소': 3, '매도취소': 4}
         hoga_lookup = {'지정가': "00", '시장가': "03"}
 
-        account = self.comboBox.currentText()
+        account = self.comboBox_account.currentText()
         order_type = self.comboBox_2.currentText()
         code = self.lineEdit_first.text()
         hoga = self.comboBox_3.currentText()
@@ -131,7 +131,7 @@ class MyWindow(QMainWindow, form_class):
             f.close()
 
             # 계정
-            account = self.comboBox.currentText()
+            account = self.comboBox_account.currentText()
 
             #BUY 리스트의 데이터를 문자열을 분리하여 필요한 정보를 준비
             for row_data in buy_list:

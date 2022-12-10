@@ -152,7 +152,7 @@
       </property>
      </item>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="lineEdit_first">
      <property name="geometry">
       <rect>
        <x>100</x>
@@ -162,7 +162,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="lineEdit_second">
      <property name="geometry">
       <rect>
        <x>100</x>
@@ -181,6 +181,9 @@
        <height>35</height>
       </rect>
      </property>
+     <property name="singleStep">
+      <number>50</number>
+     </property>
     </widget>
     <widget class="QSpinBox" name="spinBox_2">
      <property name="geometry">
@@ -190,6 +193,9 @@
        <width>231</width>
        <height>35</height>
       </rect>
+     </property>
+     <property name="singleStep">
+      <number>50</number>
      </property>
     </widget>
    </widget>
