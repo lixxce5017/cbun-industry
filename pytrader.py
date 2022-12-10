@@ -23,7 +23,7 @@ class MyWindow(QMainWindow, form_class):
         self.timer.start(1000)
         self.timer.timeout.connect(self.timeout)
 
-        self.lineEdit.textChanged.connect(self.code_changed)
+        self.lineEdit_first.textChanged.connect(self.code_changed)
         self.pushButton.clicked.connect(self.send_order)
 
         accouns_num = int(self.kiwoom.get_login_info(("ACCOUNT_CNT")))
@@ -32,7 +32,7 @@ class MyWindow(QMainWindow, form_class):
         accounts_list = accounts.split(';')[0:accouns_num]
         self.comboBox.addItems(accounts_list)
 
-        self.lineEdit.textChanged.connect(self.code_changed)
+        self.lineEdit_first.textChanged.connect(self.code_changed)
 
         self.load_buy_sell_list()
 
