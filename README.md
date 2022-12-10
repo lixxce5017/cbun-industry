@@ -70,7 +70,9 @@ pip install  pandas 1.5.2<br/>
 pip install  sqlite<br/>
 
 
-# lisence 
+# lisence <br/>
+
+KIWOOM SECURITIES Corp. All Rights Reserved
 
 
 # Contributer
