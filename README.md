@@ -4,6 +4,19 @@
 # 서비스 소개<br/><br/>
   
 # 실행 방법<br/><br/>
+1.실행 시 관리자 권한 오류 발생시 pycharm 관리자 권한으로 실행<br/>
+
+2.자동 로그인 설정 방법<br/>
+![123123](https://user-images.githubusercontent.com/101561741/206839024-842438c0-ab1e-4a8e-8920-f926e92d0ed7.png)<br/>
+실행 시 계좌 정보 설정 
+
+3. 실행 시 나오면 로그인<br/>
+
+![캡처](https://user-images.githubusercontent.com/101561741/206839407-50e09a3f-ee04-466e-b7c4-acefb7eee9da.PNG)
+<br/> 
+pytrader.py 실행 후 <br/>
+공동인증서 및 로그인 아이디 모두 입력
+
 
 # 의존성<br/><br/>
 pyhon 3.9<br/>
