@@ -83,4 +83,4 @@ class Kiwoom(QAxWidget):
 # Contributer
     kim seung whan, lixxce5017@gmail.com,ChungBuk National Univ <br/>
     jun inwoo, wjsdlsdn1158@naver.com,ChungBuk National Univ<br/>
-    lee seng min, ChungBuk National Univ<br/>
+    lee seng min,lsm50399@naver.com, ChungBuk National Univ<br/>
