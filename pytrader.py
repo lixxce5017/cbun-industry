@@ -73,7 +73,7 @@ class MyWindow(QMainWindow, form_class):
 
         account = self.comboBox.currentText()
         order_type = self.comboBox_2.currentText()
-        code = self.lineEdit.text()
+        code = self.lineEdit_first.text()
         hoga = self.comboBox_3.currentText()
         num = self.spinBox.value()
         price = self.spinBox_2.value()
