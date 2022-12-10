@@ -198,7 +198,7 @@
       <number>50</number>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="pushButton_order">
      <property name="geometry">
       <rect>
        <x>220</x>

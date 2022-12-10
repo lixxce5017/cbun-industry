@@ -24,7 +24,7 @@ class MyWindow(QMainWindow, form_class):
         self.timer.timeout.connect(self.timeout)
 
         self.lineEdit_first.textChanged.connect(self.code_changed)
-        self.pushButton.clicked.connect(self.send_order)
+        self.pushButton_order.clicked.connect(self.send_order)
 
         accouns_num = int(self.kiwoom.get_login_info(("ACCOUNT_CNT")))
         accounts = self.kiwoom.get_login_info("ACCNO")
