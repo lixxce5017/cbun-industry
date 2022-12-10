@@ -63,7 +63,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>220</y>
+       <y>250</y>
        <width>83</width>
        <height>161</height>
       </rect>
@@ -132,21 +132,11 @@
       </property>
      </item>
     </widget>
-    <widget class="QComboBox" name="comboBox_3">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>170</y>
-       <width>231</width>
-       <height>33</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QComboBox" name="comboBox_4">
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>230</y>
+       <y>260</y>
        <width>231</width>
        <height>33</height>
       </rect>
@@ -166,7 +156,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>290</y>
+       <y>320</y>
        <width>231</width>
        <height>33</height>
       </rect>
@@ -176,9 +166,29 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>340</y>
+       <y>370</y>
        <width>231</width>
        <height>33</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>170</y>
+       <width>231</width>
+       <height>35</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>210</y>
+       <width>231</width>
+       <height>35</height>
       </rect>
      </property>
     </widget>
