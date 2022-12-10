@@ -20,26 +20,7 @@ Open API for Windows COM <br/>
 ``` python 
 
 class Kiwoom(QAxWidget): 
-    def __init__(self):
-        super().__init__()
-        self._create_kiwoom_instance()
-
-    def _create_kiwoom_instance(self):
-        self.setControl("KHOPENAPI.KHOpenAPICtrl.1")
-
-    def comm_connet(self):
-        self.dynamicCall("CommConnect()")
-        self.login_event_loop =QEventLoop()
-        self.login_event_loop.exec_()
-
-        self.login_event_loop.exit()
-
-    def get_code_list_by_market(self, market): 
-        code_list = self.dynamicCall("getcodlistmarket(QString)", market)
-        code_list =code_list.split(';')
-        return code_list[:-1]
-
-
+#QAxWidget 로 별도의 import 없이 키움api를 상속받게 해 줌
 
 
 ```
