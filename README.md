@@ -1,7 +1,9 @@
 ****주식 추천 프로그램****<br/>
 **산업스파이**<br/><br/><br/><br/>
 
-# 서비스 소개<br/><br/>
+# 서비스 소개<br/>
+본 서비스는 시간이 부족한 직장인 및 학생들을 위하여
+컴퓨터로 주식 자동매매 및 추천을 해주는 프로그램이다.
   
 # 실행 방법<br/><br/>
 1.실행 시 관리자 권한 오류 발생시 pycharm 관리자 권한으로 실행<br/>
@@ -28,13 +30,13 @@ Open API OCX 탑재 프로그램 제작 및 KOA Studioapi*<br/>
 Open API for Windows COM <br/>
 
 ***pip***<br/>
-pyqt 5.15.7
-pywin32 305
-pywinauto 0.6.8
-numpy 1.23.5
-kioom 1.3.1
-pandas 1.5.2
-sqlite 3.38.3
+pyqt 5.15.7<br/>
+pywin32 305<br/>
+pywinauto 0.6.8<br/>
+numpy 1.23.5<br/>
+kioom 1.3.1<br/>
+pandas 1.5.2<br/>
+sqlite 3.38.3<br/>
 
 <br/><br/>
 *****api*****
@@ -57,15 +59,15 @@ class Kiwoom(QAxWidget):
 
 [설명해주는 사이트](https://losskatsu.github.io/it-infra/conda32/#4-%ED%82%A4%EC%9B%80-api-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C)<br/>
 
-6. pip install 
-pip install pyqt 5.15.7
-pip install pywin32 305
-pip install pywinauto 0.6.8
-pip install  numpy 1.23.5
-pip install  numpy 1.23.5
-pip install  kioom 1.3.1
-pip install  pandas 1.5.2
-pip install  sqlite
+6. pip install <br/>
+pip install pyqt 5.15.7<br/>
+pip install pywin32 305<br/>
+pip install pywinauto 0.6.8<br/>
+pip install  numpy 1.23.5<br/>
+pip install  numpy 1.23.5<br/>
+pip install  kioom 1.3.1<br/>
+pip install  pandas 1.5.2<br/>
+pip install  sqlite<br/>
 
 
 # lisence 
