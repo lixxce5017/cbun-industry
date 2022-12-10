@@ -239,6 +239,36 @@
        <height>192</height>
       </rect>
      </property>
+     <column>
+      <property name="text">
+       <string>예수금</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>총매입</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>총평가</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>총손익</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>총 수익률</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>추정자산</string>
+      </property>
+     </column>
     </widget>
    </widget>
   </widget>
